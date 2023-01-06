@@ -2,7 +2,6 @@ easyblock = 'PythonBundle'
 
 name = 'TensorFlow'
 version = '2.9.1'
-versionsuffix = '-CUDA-%(cudaver)s'
 
 homepage = 'https://www.tensorflow.org/'
 description = "An open-source software library for Machine Intelligence"
@@ -20,9 +19,6 @@ builddependencies = [
     ('LLVM', '14.0.3'),  # for debugging with llvm-symbolizer, to be removed
 ]
 dependencies = [
-    ('CUDA', '11.7.0', '', SYSTEM),
-    ('cuDNN', '8.4.1.50', versionsuffix, SYSTEM),
-    ('NCCL', '2.12.12', versionsuffix),
     ('Python', '3.10.4'),
     ('h5py', '3.7.0'),
     ('cURL', '7.83.0'),
