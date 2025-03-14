@@ -1,0 +1,24 @@
+Find cuda path with EBROOTCUDA. See
+https://github.com/easybuilders/easybuild-easyconfigs/pull/21924#issuecomment-2723932545
+
+Author: Viktor Rehnberg (Chalmers University of Technology)
+
+--- /apps/Test/software/jax/0.4.34-gfbf-2024a-CUDA-12.6.0/lib/python3.12/site-packages/jax/_src/lib/__init__.py	2025-02-20 10:12:23.704399435 +0000
++++ -	2025-03-14 08:22:49.679847748 +0000
+@@ -18,6 +18,7 @@
+ from __future__ import annotations
+ 
+ import gc
++import os
+ import pathlib
+ import re
+ from typing import Any
+@@ -132,7 +133,7 @@
+   # If the pip package nvidia-cuda-nvcc-cu11 is installed, it should have
+   # both of the things XLA looks for in the cuda path, namely bin/ptxas and
+   # nvvm/libdevice/libdevice.10.bc
+-  path = _jaxlib_path.parent / "nvidia" / "cuda_nvcc"
++  path = pathlib.Path(os.getenv("EBROOTCUDA", _jaxlib_path.parent / "nvidia" / "cuda_nvcc"))
+   if path.is_dir():
+     return str(path)
+   return None

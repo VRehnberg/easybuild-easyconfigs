@@ -198,7 +198,7 @@ use_pip = True
 
 exts_list = [
     (name, version, {
-        'patches': ['jax-0.4.35_version.patch'],
+        'patches': ['jax-0.4.35_version.patch', 'jax-0.4.34_use-eb-cuda-path.patch'],
         'preinstallopts': _no_devtag,
         'runtest': False,
         'source_tmpl': '%(name)s-v%(version)s.tar.gz',
@@ -206,6 +206,7 @@ exts_list = [
         'checksums': [
             {'jax-v0.4.34.tar.gz': 'd3a75ad667772309ade81350fa70c4a78028a920028800282e46d8383c0ee6bb'},
             {'jax-0.4.35_version.patch': 'cd2139a7802abf14b4b2cecee331aed80fff2ef91e16fa105093aea0795455e8'},
+            {'jax-0.4.34_use-eb-cuda-path.patch': 'e231abe1ce79594a329f222b7c3b978853ddf8fea5f0a552c21904aa20db11a7'},
         ],
     }),
 ]
